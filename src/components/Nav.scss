@@ -1,0 +1,51 @@
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  height: 50px;
+  background-color: white;
+  border-bottom: 1px solid rgb(231, 231, 231);
+
+  .logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    img {
+      width: 35px;
+      height: 35px;
+    }
+  }
+
+  .menus {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    margin: 0 100px;
+    
+    .menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;      
+      height: 100%;
+      color: rgb(105, 105, 105);
+      // background-color: antiquewhite;
+
+      &:hover {
+        color: black;
+        cursor: pointer;
+      }
+
+      &:active {
+        color: rgb(72, 72, 255);
+      }
+      
+      p {
+        font-size: 14px;  
+        font-weight: 500;
+      }
+    }
+  }
+}
