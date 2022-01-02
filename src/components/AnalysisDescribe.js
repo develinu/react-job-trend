@@ -3,11 +3,12 @@ import './AnalysisDescribe.scss'
 import Tags from './Tags'
 
 
-const AnalysisDescribe = () => {
+const AnalysisDescribe = ({ jobAnalysis }) => {
+  
   return (
     <div className="analysis-describe">
-      <p>다음 34개 채용공고에 대한 분석 결과입니다.</p>
-      <Tags />
+      <p>다음 {jobAnalysis?.analysisCount}개 채용공고에 대한 분석 결과입니다.</p>
+      <Tags tags={jobAnalysis.company} />
     </div>
   )
 }

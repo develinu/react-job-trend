@@ -2,62 +2,23 @@ import React from 'react'
 import './Tags.scss'
 
 
-const Tags = () => {
+const Tags = ({ tags }) => {
   return (
     <div className="tags">
-      <Tag id={1} name={"tag1"}/>
-      <Tag id={2} name={"tag2"}/>
-      <Tag id={3} name={"tag3"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
-      <Tag id={4} name={"tag4123"}/>
+      {
+        tags
+        ? tags.map((_tag, idx) => {
+          return (
+            <Tag key={idx} name={_tag}/>
+          )
+        })
+        : null
+      }      
     </div>
   )
 }
 
-const Tag = ({ id, name }) => {
+const Tag = ({ name }) => {
   return (
     <div className="tag">
       {name}

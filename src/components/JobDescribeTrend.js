@@ -29,22 +29,29 @@ const JobDescribeTrend = () => {
   const endDate = getEndDate()
   const dateRange = getDateRange(startDate, endDate)
   const [date, setDate] = useState(format(endDate, dateFormat))
-  const [jobDescribes, setJobDescribes] = useState([])
-  const [jobDescribe, setJobDescribe] = useState()
+  const [jobAnalyses, setJobAnalyses] = useState([])  
+  const [jobAnalysis, setJobAnalysis] = useState({})
   const [job, setJob] = useState(jobInfo[0].name)
 
   useEffect(() => {
+    console.log(`changed date : ${date}`)
     const fetchJdList = async () => {
       const _jds = await API.graphql(graphqlOperation(getJobDescribes, { date: date }))
-      setJobDescribes(_jds?.data?.listJobAnalyses?.items)
-      console.log(jobDescribes)
+      setJobAnalyses(_jds?.data?.listJobAnalyses?.items)
     }
     fetchJdList()
   }, [date])
 
   useEffect(() => {
     console.log(`changed job : ${job}`)
-  }, [job])
+    console.log(jobAnalyses)
+    const _jobAnalysis = jobAnalyses.find(e => e.search === job)
+    setJobAnalysis(_jobAnalysis ? _jobAnalysis : {})
+  }, [jobAnalyses, job])
+
+  // const getJobAnalysis = () => {
+  //   return jobAnalyses.filter(e => e.search === job)
+  // }
 
   return (
     <div className="job-describe-trend">
@@ -53,10 +60,10 @@ const JobDescribeTrend = () => {
         <Tab jobInfo={jobInfo} setJob={setJob}/>
       </section>
       <section className="job-intro">
-        <AnalysisDescribe />
+        <AnalysisDescribe jobAnalysis={jobAnalysis} />
       </section>
       <section className="charts">
-        <AnalysisCharts />
+        <AnalysisCharts jobAnalysis={jobAnalysis} />
       </section>
     </div>
   )
