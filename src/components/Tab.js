@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Nav } from 'react-bootstrap'
 import './Tab.scss'
 
 
-const Tab = ({ jobs }) => {
+const Tab = ({ jobInfo, setJob }) => {
 
+  const defaultJob = jobInfo[0].name
+
+  useEffect(() => {
+    setJob(defaultJob)
+  }, [])
+
+  const handleSelect = (eventKey) => {
+    setJob(eventKey)
+  }
   return (
     <div className="job-tabs">
-      <Nav fill variant="tabs" defaultActiveKey="/job/1">      
+      <Nav fill variant="tabs" defaultActiveKey={defaultJob} onSelect={handleSelect}>
         {
-          jobs.map((job, idx) => {
-            return (
+          jobInfo.map((job, idx) => {
+            return (              
               <Nav.Item key={idx}>
                 <Nav.Link 
-                  eventKey={`/job/${job.id}`}> {job.name} </Nav.Link>
+                  eventKey={job.name}> {job.name} </Nav.Link>
               </Nav.Item>
             )
           })
