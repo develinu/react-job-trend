@@ -2,15 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { NavDropdown } from 'react-bootstrap'
 import './DateDropdown.scss'
 
-import { API, graphqlOperation } from 'aws-amplify'
-import { getJobDescribes } from '../graphql/queries'
-import { format, sub, eachMonthOfInterval } from 'date-fns'
-import { getKstDate } from '../utils/date'
+import { format } from 'date-fns'
 
 
 const DateDropdown = ({ dateRange, date, setDate }) => {
   const dateFormat = 'yyyy-MM'
-  const [jobDescribes, setJobDescribes] = useState([])
 
   // useEffect(() => {
   //   const fetchJdList = async () => {
