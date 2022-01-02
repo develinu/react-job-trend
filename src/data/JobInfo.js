@@ -36,3 +36,42 @@ export const jobInfo = [
     name : "프로덕트 디자이너"
   }  
 ]
+
+export const analysisInfo = [
+  {
+    "title": "요구 경력",
+    "column": "summary_experience"
+  },
+  {
+    "title": "요구 기술",
+    "column": "summary_skill"
+  },
+  {
+    "title": "급여(만원)",
+    "column": "summary_salary"
+  },
+  {
+    "title": "기업 소개",
+    "column": "introduce"
+  },
+  {
+    "title": "직무",
+    "column": "role"
+  },
+  {
+    "title": "자격 요건",
+    "column": "requirement"
+  },
+  {
+    "title": "우대 사항",
+    "column": "advance"
+  },
+  {
+    "title": "복지",
+    "column": "benefit"
+  },
+  {
+    "title": "기타",
+    "column": "etc"
+  }
+]

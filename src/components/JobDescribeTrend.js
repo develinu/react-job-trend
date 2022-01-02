@@ -25,7 +25,7 @@ const JobDescribeTrend = () => {
   }
 
   const dateFormat = 'yyyy-MM'
-  const startDate = new Date(2021, 7, 1)
+  const startDate = new Date(2021, 6, 1)
   const endDate = getEndDate()
   const dateRange = getDateRange(startDate, endDate)
   const [date, setDate] = useState(format(endDate, dateFormat))
@@ -48,10 +48,6 @@ const JobDescribeTrend = () => {
     const _jobAnalysis = jobAnalyses.find(e => e.search === job)
     setJobAnalysis(_jobAnalysis ? _jobAnalysis : {})
   }, [jobAnalyses, job])
-
-  // const getJobAnalysis = () => {
-  //   return jobAnalyses.filter(e => e.search === job)
-  // }
 
   return (
     <div className="job-describe-trend">
