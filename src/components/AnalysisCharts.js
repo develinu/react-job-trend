@@ -32,12 +32,11 @@ const AnalysisCharts = ({ jobAnalysis, maxChartElementCount=20 }) => {
   
   return (
     <div className="analysis-charts">
-      { console.log(jobAnalysis) }
       {
         Object.keys(jobAnalysis).length !== 0 && analysisInfo
         ? analysisInfo.map ((info, idx) => {
           return (
-            <div className="analysis-chart">
+            <div className="analysis-chart noselect">
               <h1>{info.title}</h1>
               <AnalysisChart key={idx} data={chartData[info.column]}/>
             </div>
@@ -50,7 +49,6 @@ const AnalysisCharts = ({ jobAnalysis, maxChartElementCount=20 }) => {
 }
 
 const AnalysisChart = ({ data }) => {
-  console.log(data)
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data} margin={{ top: 5, right: 0, bottom: 5, left: 0 }}>

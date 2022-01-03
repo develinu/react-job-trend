@@ -22,4 +22,9 @@
       color: white !important;
     }
   }
+
+  .disabled {
+    color: $text-subnormal-color;
+    border-color: $text-subnormal-color;
+  }
 }

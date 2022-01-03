@@ -15,7 +15,7 @@ const Tab = ({ jobInfo, setJob }) => {
     setJob(eventKey)
   }
   return (
-    <div className="job-tabs">
+    <div className="job-tabs noselect">
       <Nav fill variant="tabs" defaultActiveKey={defaultJob} onSelect={handleSelect}>
         {
           jobInfo.map((job, idx) => {

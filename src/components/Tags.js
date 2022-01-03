@@ -29,7 +29,7 @@ const Tag = ({ idx, name }) => {
   ]
 
   return (
-    <div className="tag" style={{backgroundColor: `${tagColors[idx % tagColors.length]}`}}>
+    <div className="tag noselect" style={{backgroundColor: `${tagColors[idx % tagColors.length]}`}}>
       {name}
     </div>
   )

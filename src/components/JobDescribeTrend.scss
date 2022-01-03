@@ -1,5 +1,21 @@
+@import '../style/global';
+
 .job-describe-trend {
+  height: 100%;
+  
   .job-filter {
     padding-top: 20px;
+  }
+
+  .empty-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+
+    h1 {
+      font-size: 20px;
+      color: $text-subnormal-color;
+    }
   }
 }
