@@ -54,7 +54,7 @@ const AnalysisChart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <BarChart data={data} margin={{ top: 5, right: 0, bottom: 5, left: 0 }}>
-        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+        <CartesianGrid fill="white" stroke="#ccc" strokeDasharray="5 5" />
         <XAxis 
           dataKey="name" 
           height={100} 
@@ -64,7 +64,7 @@ const AnalysisChart = ({ data }) => {
           allowDataOverflow={true} />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="count" fill="#8884d8" />
+        <Bar className="chart-bar" dataKey="count" fill="#92140C" />
       </BarChart>
     </ResponsiveContainer>
   )

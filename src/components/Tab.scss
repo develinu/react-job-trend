@@ -1,3 +1,14 @@
+@import '../style/global';
+
 .job-tabs {
-  margin-top: 20px;
+  margin-top: 30px;
+
+  .job-tab {
+    color: $text-normal-color;
+  }
+  .active {
+    // color: rgb(118, 81, 253) !important;
+    color: $primary-color !important;
+    font-weight: 700;
+  }
 }

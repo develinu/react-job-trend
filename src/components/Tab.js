@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Nav } from 'react-bootstrap'
 import './Tab.scss'
 
@@ -22,6 +22,7 @@ const Tab = ({ jobInfo, setJob }) => {
             return (              
               <Nav.Item key={idx}>
                 <Nav.Link 
+                  className="job-tab"
                   eventKey={job.name}> {job.name} </Nav.Link>
               </Nav.Item>
             )

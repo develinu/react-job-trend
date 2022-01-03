@@ -1,3 +1,5 @@
+@import '../style/global';
+
 .analysis-charts {
   margin-top: 50px;
 
@@ -9,5 +11,9 @@
       font-weight: 700;
       padding: 20px 0;
     }
+
+    .chart-bar {
+      fill: $primary-color !important;
+    }    
   }
 }

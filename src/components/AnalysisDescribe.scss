@@ -1,6 +1,10 @@
+@import '../style/global';
+
 .analysis-describe {
   padding-top: 20px;
   p {
-    
+    padding: 10px 0;
+    font-size: 16px;
+    color: $text-normal-color;
   }
 }

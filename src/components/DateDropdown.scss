@@ -1,4 +1,25 @@
+@import '../style/global';
+
+
 .date-dropdown {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  
+  #nav-dropdown {    
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 30px;
+    color: $primary-color;
   }
+
+  .btn {
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+      color: white !important;
+    }
+  }
+}

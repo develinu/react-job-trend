@@ -1,6 +1,6 @@
 
 import './App.scss';
-import GlobalStyles from './GlobalStyles'
+import GlobalStyles from './style/GlobalStyles'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Nav from './components/Nav'
