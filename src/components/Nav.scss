@@ -1,3 +1,5 @@
+@import '../style/global';
+
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -30,22 +32,21 @@
       align-items: center;
       width: 120px;      
       height: 100%;
-      color: rgb(105, 105, 105);
-      // background-color: antiquewhite;
+      color: $text-subnormal-color;
 
       &:hover {
-        color: black;
+        color: $text-normal-color;
         cursor: pointer;
-      }
-
-      &:active {
-        color: rgb(72, 72, 255);
       }
       
       p {
         font-size: 14px;  
-        font-weight: 500;
+        font-weight: 700;
       }
+    }
+
+    .is-active {
+      color: $primary-color;
     }
   }
 }

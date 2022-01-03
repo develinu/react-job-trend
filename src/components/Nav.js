@@ -1,6 +1,7 @@
 import React from 'react'
 import { logo, menus } from '../data/header'
 import './Nav.scss'
+import { NavLink, Link } from 'react-router-dom'
 
 
 const Nav = () => {
@@ -14,9 +15,9 @@ const Nav = () => {
         {
           menus.map((menu, idx) => {
             return (
-              <div key={idx} className="menu">
-                <p> {menu.name} </p>
-              </div>
+              <NavLink key={idx} to={menu.path} activeClassName='is-active' className="menu noselect">
+                  <p> {menu.name} </p>
+              </NavLink>
             )
           })
         }

@@ -5,10 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Nav from './components/Nav'
 import JobDescribeTrend from './components/JobDescribeTrend'
+import { Route } from 'react-router-dom'
 
-
-
-
+// TODO
+// set Favicon & Title
+// set Logo
+// apply css transition at triggered chang tab
+// remove console log with packaging library
+// deployment to amplify
 
 function App() {
   return (
@@ -19,7 +23,14 @@ function App() {
         <Nav />
       </header>
       <div className="container">
-        <JobDescribeTrend />        
+        <Route exact path="/job-trend">
+          <JobDescribeTrend />        
+        </Route>
+        <Route exact path="/soon">
+          <div className="soon noselect">
+            <h1>예정중인 페이지입니다.</h1>
+          </div>
+        </Route>
       </div>
     </div>    
     </>

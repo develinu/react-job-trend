@@ -6,10 +6,12 @@ export const logo = {
 export const menus = [
   {
     id: 1,
-    name: "직무 트렌드"
+    name: "직무 트렌드",
+    path: "/job-trend"
   },
   {
     id: 2,
-    name: "예정중..."
+    name: "Soon...",
+    path: "/soon"
   }
 ]
