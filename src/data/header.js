@@ -1,6 +1,6 @@
 export const logo = {
-  src: "/logo192.png",
-  alt: "logo192.png",
+  src: "/logo.png",
+  alt: "logo.png",
 }
 
 export const menus = [

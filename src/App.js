@@ -8,8 +8,6 @@ import JobDescribeTrend from './components/JobDescribeTrend'
 import { Route } from 'react-router-dom'
 
 // TODO
-// set Favicon & Title
-// set Logo
 // apply css transition at triggered chang tab
 // remove console log with packaging library
 // deployment to amplify
