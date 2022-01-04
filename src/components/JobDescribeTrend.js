@@ -35,21 +35,40 @@ const JobDescribeTrend = () => {
   const [job, setJob] = useState(jobInfo[0].name)
   const [isFetch, setIsFetch] = useState(false)
 
+  const findTargetJobAnalysis = () => {
+    const _jobAnalysis = jobAnalyses?.find(e => e.date === date)?.items?.find(e => e.search === job)
+    return _jobAnalysis ? _jobAnalysis : {}
+  }
+
   useEffect(() => {
     console.log(`changed date : ${date}`)
     setIsFetch(true)
+    const _findJobAnalysis = jobAnalyses.find(_j => _j.date === date)
+
+    if (_findJobAnalysis) {
+      setJobAnalysis(findTargetJobAnalysis())
+      setIsFetch(false)
+      return
+    } 
+
     const fetchJdList = async () => {
       const _jds = await API.graphql(graphqlOperation(getJobDescribes, { date: date }))
-      setJobAnalyses(_jds?.data?.listJobAnalyses?.items)
+      const _jobAnalysis = {
+        date: date,
+        items: _jds?.data?.listJobAnalyses?.items
+      }
+      setJobAnalyses(
+        [...jobAnalyses, _jobAnalysis]
+      )
     }
     fetchJdList().finally(_ => setIsFetch(false))
   }, [date])
 
+
   useEffect(() => {
     console.log(`changed job : ${job}`)
     console.log(jobAnalyses)
-    const _jobAnalysis = jobAnalyses.find(e => e.search === job)
-    setJobAnalysis(_jobAnalysis ? _jobAnalysis : {})
+    setJobAnalysis(findTargetJobAnalysis())
   }, [jobAnalyses, job])
 
   return (
