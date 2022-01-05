@@ -11,6 +11,7 @@ import { getJobDescribes } from '../graphql/queries'
 import { format, sub, eachMonthOfInterval } from 'date-fns'
 import { getKstDate } from '../utils/date'
 import { analysisInfo, jobInfo } from '../data/JobInfo'
+import { consoleHelper } from '../utils/consoleHelper'
 
 
 const JobDescribeTrend = () => {
@@ -41,7 +42,7 @@ const JobDescribeTrend = () => {
   }
 
   useEffect(() => {
-    console.log(`changed date : ${date}`)
+    consoleHelper(`changed date : ${date}`)
     setIsFetch(true)
     const _findJobAnalysis = jobAnalyses.find(_j => _j.date === date)
 
@@ -66,9 +67,10 @@ const JobDescribeTrend = () => {
 
 
   useEffect(() => {
-    console.log(`changed job : ${job}`)
-    console.log(jobAnalyses)
+    consoleHelper(`changed job : ${job}`)
+    consoleHelper(jobAnalyses)
     setJobAnalysis(findTargetJobAnalysis())
+    consoleHelper(jobAnalysis)
   }, [jobAnalyses, job])
 
   return (
@@ -84,7 +86,7 @@ const JobDescribeTrend = () => {
               </section>
             )
           } else {
-            if (jobAnalyses && jobAnalyses.length > 0) {
+            if (jobAnalysis && Object.keys(jobAnalysis).length > 0) {
               return (
                 <>
                 <section className="job-filter">
