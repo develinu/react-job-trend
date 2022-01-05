@@ -12,6 +12,7 @@ import { Route } from 'react-router-dom'
 // remove console log with packaging library
 // deployment to amplify
 
+
 function App() {
   return (
     <>
@@ -25,7 +26,7 @@ function App() {
           <JobDescribeTrend />        
         </Route>
         <Route exact path="/soon">
-          <div className="soon noselect">
+          <div className="soon noselect">np
             <h1>예정중인 페이지입니다.</h1>
           </div>
         </Route>

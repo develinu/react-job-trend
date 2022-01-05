@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Amplify from 'aws-amplify'
 import { config } from './aws-exports'
+console.log(config)
 Amplify.configure(config)
 
 ReactDOM.render(
