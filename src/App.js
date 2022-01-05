@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Nav from './components/Nav'
 import JobDescribeTrend from './components/JobDescribeTrend'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 // TODO
 // apply css transition at triggered chang tab
@@ -22,14 +22,15 @@ function App() {
         <Nav />
       </header>
       <div className="container">
+        <Redirect from='/' to='/job-trend' />
         <Route exact path="/job-trend">
           <JobDescribeTrend />        
         </Route>
-        <Route exact path="/soon">
-          <div className="soon noselect">np
+        {/* <Route exact path="/soon">
+          <div className="soon noselect">
             <h1>예정중인 페이지입니다.</h1>
           </div>
-        </Route>
+        </Route> */}
       </div>
     </div>    
     </>
