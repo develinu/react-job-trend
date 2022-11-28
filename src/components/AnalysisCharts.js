@@ -13,7 +13,7 @@ const AnalysisCharts = ({ jobAnalysis, maxChartElementCount=20 }) => {
   }, [jobAnalysis])
 
   const parseChartData = () => {
-    const _jobAnalysis = {...jobAnalysis}
+    const _jobAnalysis = {...jobAnalysis.items}
 
     analysisInfo?.forEach(info => {
       _jobAnalysis[info.column] = _jobAnalysis[info.column]?.map(e => {

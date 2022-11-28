@@ -7,10 +7,10 @@ import AnalysisCharts from './AnalysisCharts';
 import CustomSpinner from './CustomSpinner'
 
 import { API, graphqlOperation } from 'aws-amplify'
-import { getJobDescribes } from '../graphql/queries'
+import { getJobAnalysis } from '../graphql/queries'
 import { format, sub, eachMonthOfInterval } from 'date-fns'
 import { getKstDate } from '../utils/date'
-import { analysisInfo, jobInfo } from '../data/JobInfo'
+import { jobInfo } from '../data/JobInfo'
 import { consoleHelper } from '../utils/consoleHelper'
 
 
@@ -36,35 +36,35 @@ const JobDescribeTrend = () => {
   const [job, setJob] = useState(jobInfo[0].name)
   const [isFetch, setIsFetch] = useState(false)
 
-  const findTargetJobAnalysis = () => {
-    const _jobAnalysis = jobAnalyses?.find(e => e.date === date)?.items?.find(e => e.search === job)
+  const findTargetJobAnalysis = () => {        
+    const _jobAnalysis = jobAnalyses?.find(e => e.date === date && e.search === job)
     return _jobAnalysis ? _jobAnalysis : {}
+  }
+
+  const fetchJdList = async () => {
+    const _jds = await API.graphql(graphqlOperation(getJobAnalysis, { search: job, date: date }))
+    const _jobAnalysis = {
+      date: date,
+      search: job,
+      items: _jds?.data?.getJobAnalysis
+    }
+    setJobAnalyses(
+      [...jobAnalyses, _jobAnalysis]
+    )
   }
 
   useEffect(() => {
     consoleHelper(`changed date : ${date}`)
     setIsFetch(true)
-    const _findJobAnalysis = jobAnalyses.find(_j => _j.date === date)
-
+    const _findJobAnalysis = jobAnalyses.find(_j => _j.date === date && _j.search === job)
     if (_findJobAnalysis) {
       setJobAnalysis(findTargetJobAnalysis())
       setIsFetch(false)
       return
-    } 
+    }  
 
-    const fetchJdList = async () => {
-      const _jds = await API.graphql(graphqlOperation(getJobDescribes, { date: date }))
-      const _jobAnalysis = {
-        date: date,
-        items: _jds?.data?.listJobAnalyses?.items
-      }
-      setJobAnalyses(
-        [...jobAnalyses, _jobAnalysis]
-      )
-    }
-    fetchJdList().finally(_ => setIsFetch(false))
-  }, [date])
-
+    fetchJdList().finally(_ => setIsFetch(false))   
+  }, [date, job])
 
   useEffect(() => {
     consoleHelper(`changed job : ${job}`)
@@ -78,6 +78,9 @@ const JobDescribeTrend = () => {
       <section className="date-filter">
         <DateDropdown dateRange={dateRange} date={date} setDate={setDate}/>
       </section>
+      <section className="job-filter">
+        <Tab jobInfo={jobInfo} targetJob={job} setJob={setJob} />
+      </section>
       { (() => {        
           if (isFetch) {
             return (
@@ -86,12 +89,9 @@ const JobDescribeTrend = () => {
               </section>
             )
           } else {
-            if (jobAnalysis && Object.keys(jobAnalysis).length > 0) {
+            if (jobAnalysis.items && Object.keys(jobAnalysis).length > 0) {
               return (
                 <>
-                <section className="job-filter">
-                  <Tab jobInfo={jobInfo} setJob={setJob}/>
-                </section>
                 <section className="job-intro">
                   <AnalysisDescribe jobAnalysis={jobAnalysis} />
                 </section>

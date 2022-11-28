@@ -3,9 +3,9 @@ import { Nav } from 'react-bootstrap'
 import './Tab.scss'
 
 
-const Tab = ({ jobInfo, setJob }) => {
+const Tab = ({ jobInfo, targetJob, setJob }) => {
 
-  const defaultJob = jobInfo[0].name
+  const defaultJob = targetJob ? targetJob : jobInfo[0].name
 
   useEffect(() => {
     setJob(defaultJob)

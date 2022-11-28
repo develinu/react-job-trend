@@ -4,6 +4,8 @@ import './DateDropdown.scss'
 
 import { format } from 'date-fns'
 
+import { consoleHelper } from '../utils/consoleHelper'
+
 
 const DateDropdown = ({ dateRange, date, setDate }) => {
   const dateFormat = 'yyyy-MM'
@@ -24,7 +26,7 @@ const DateDropdown = ({ dateRange, date, setDate }) => {
 
   const onPreviousDate = () => {
     const previousDate = format(dateRange[getCurrentDateIndex()-1], dateFormat)
-    console.log(`previousDate : ${previousDate}`)
+    consoleHelper(`previousDate : ${previousDate}`)
     setDate(previousDate)
   }  
 

@@ -7,8 +7,8 @@ const AnalysisDescribe = ({ jobAnalysis }) => {
   
   return (
     <div className="analysis-describe">
-      <p>다음 {jobAnalysis?.analysisCount}개 채용공고에 대한 분석 결과입니다.</p>
-      <Tags tags={jobAnalysis.company} />
+      <p>다음 {jobAnalysis?.items?.analysisCount}개 채용공고에 대한 분석 결과입니다.</p>
+      <Tags tags={jobAnalysis.items?.company} />
     </div>
   )
 }
